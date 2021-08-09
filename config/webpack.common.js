@@ -23,14 +23,14 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       title: 'Webpack config',
-      template: paths.src + '/template.html',
+      template: paths.src + '/template.pug',
       filename: 'index.html',
       chunks: ['index'],
     }),
 
     new HtmlWebpackPlugin({
       filename: 'index2.html',
-      template: paths.src + '/template2.html',
+      template: paths.src + '/template2.pug',
       chunks: ['another'],
     }),
 
@@ -56,6 +56,10 @@ module.exports = {
   module: {
     rules: [
       {test: /\.js$/, use: ['babel-loader']},
+      {
+        test: /\.pug$/,
+        loader: 'pug-loader',
+      },
     ],
   },
 
