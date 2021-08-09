@@ -1,8 +1,8 @@
-const webpack = require('webpack')
-const { merge } = require('webpack-merge')
+const webpack = require('webpack');
+const {merge} = require('webpack-merge');
 
-const common = require('./webpack.common.js')
-const paths = require('./paths')
+const common = require('./webpack.common.js');
+const paths = require('./paths');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -25,7 +25,7 @@ module.exports = merge(common, {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1, modules: true },
+            options: {sourceMap: true, importLoaders: 1, modules: true},
           },
         ],
       },
@@ -35,4 +35,4 @@ module.exports = merge(common, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
-})
+});

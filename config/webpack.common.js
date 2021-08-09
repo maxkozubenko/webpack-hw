@@ -1,12 +1,16 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const PrettierPlugin = require("prettier-webpack-plugin");
-const ESLintPlugin = require('eslint-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PrettierPlugin = require('prettier-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
-const paths = require('./paths')
+const paths = require('./paths');
 
 module.exports = {
-  entry: [paths.src + '/main.js'],
+  // entry: [paths.src + '/main.js'],
+  entry: {
+    index: [paths.src + '/main.js'],
+    another: [paths.src + '/js/secondStage.js'],
+  },
 
   output: {
     path: paths.build,
@@ -19,27 +23,28 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       title: 'Webpack config',
-      template: paths.src + '/template.html', 
-      filename: 'index.html', 
+      template: paths.src + '/template.html',
+      filename: 'index.html',
+      chunks: ['index'],
     }),
 
     new HtmlWebpackPlugin({
-      title: 'Webpack config',
-      template: paths.src + '/template.html', 
-      filename: 'index.html', 
+      filename: 'index2.html',
+      template: paths.src + '/template2.html',
+      chunks: ['another'],
     }),
 
     new PrettierPlugin(
-      {
-        printWidth: 80,               
-        tabWidth: 2,
-        bracketSpacing: false,
-        singleQuote: true,                 
-        useTabs: false,               
-        semi: true,                  
-        encoding: 'utf-8',            
-        extensions: [ ".js", ".ts" ]
-      }
+        {
+          printWidth: 80,
+          tabWidth: 2,
+          bracketSpacing: false,
+          singleQuote: true,
+          useTabs: false,
+          semi: true,
+          encoding: 'utf-8',
+          extensions: ['.js', '.ts'],
+        }
     ),
 
     new ESLintPlugin({
@@ -50,7 +55,7 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.js$/, use: ['babel-loader'] },
+      {test: /\.js$/, use: ['babel-loader']},
     ],
   },
 
@@ -61,4 +66,4 @@ module.exports = {
       '@': paths.src,
     },
   },
-}
+};
