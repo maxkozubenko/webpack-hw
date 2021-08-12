@@ -2,6 +2,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PrettierPlugin = require('prettier-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const paths = require('./paths');
 
@@ -9,7 +10,7 @@ module.exports = {
   // entry: [paths.src + '/main.js'],
   entry: {
     index: [paths.src + '/main.js'],
-    another: [paths.src + '/js/secondStage.js'],
+    hobby: [paths.src + '/js/hobbyPage.js'],
   },
 
   output: {
@@ -21,6 +22,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
 
+    new CopyPlugin({
+      patterns: [
+        {from: paths.src + '/assets', to: paths.build},
+      ],
+    }),
+
     new HtmlWebpackPlugin({
       title: 'Webpack config',
       template: paths.src + '/template.pug',
@@ -29,9 +36,9 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      filename: 'index2.html',
-      template: paths.src + '/template2.pug',
-      chunks: ['another'],
+      filename: 'pages/index2.html',
+      template: paths.src + '/pages/template2.pug',
+      chunks: ['hobby'],
     }),
 
     new PrettierPlugin(
@@ -60,6 +67,9 @@ module.exports = {
         test: /\.pug$/,
         loader: 'pug-loader',
       },
+      {test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource'},
+
+      {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline'},
     ],
   },
 

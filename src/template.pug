@@ -6,5 +6,8 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
     body 
-        h1 User Hello
-        .text 
+        include components/header/header.pug
+        .wrapper 
+            include components/myself/myself.pug
+            include components/skills/skills.pug
+            include components/footer/footer.pug

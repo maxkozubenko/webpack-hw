@@ -1,5 +1,6 @@
-import {example} from '@/js/addText';
+// styles
 import '@/styles/style.css';
 
-const textEl = document.querySelector('.text');
-textEl.innerHTML = example();
+// header
+import {} from '@/components/header/header';
+import {} from '@/components/skills/skills';
