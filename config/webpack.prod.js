@@ -14,22 +14,7 @@ module.exports = merge(common, {
     filename: 'js/[name].[contenthash].bundle.js',
   },
   module: {
-    rules: [
-      {
-        test: /\.(scss|css)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              sourceMap: false,
-              modules: false,
-            },
-          },
-        ],
-      },
-    ],
+
   },
   plugins: [
     new MiniCssExtractPlugin({

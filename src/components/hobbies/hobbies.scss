@@ -1,0 +1,42 @@
+.hobbies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
+
+    @media screen and (min-width: 1000px) {
+        & {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+}
+
+.hobby {
+    width: 250px;
+    padding: 30px 0;
+
+    &_title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    &_description {
+        margin-top: 20px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    @media screen and (min-width: 1000px) {
+        & {
+            width: 500px;
+            padding: 30px 0;
+        }
+    }
+}
+
+.focused {
+    background-color: #f6f6f6;
+}

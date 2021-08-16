@@ -1,0 +1,28 @@
+{
+    "skills": [
+        {
+            "nameSkill": "HTML",
+            "rangSkiil": "4"
+        },
+        {
+            "nameSkill": "CSS",
+            "rangSkiil": "4"
+        },
+        {
+            "nameSkill": "JS",
+            "rangSkiil": "4"
+        },
+        {
+            "nameSkill": "Angular",
+            "rangSkiil": "3"
+        },
+        {
+            "nameSkill": "jQuery",
+            "rangSkiil": "3"
+        },
+        {
+            "nameSkill": "Bootstrap",
+            "rangSkiil": "3"
+        }
+    ]
+}

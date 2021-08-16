@@ -1,5 +1,13 @@
+@mixin basic-hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+$bg-grey: #f6f6f6;
+$color-grey: grey;
+
 .header {
-    background-color:#f6f6f6;
+    background-color: $bg-grey;
     position: relative;
 }
 
@@ -16,16 +24,17 @@
     height: 100vh;
     z-index: 9999;
     background-color: #fff;
-}
-
-.menu__item {
-  padding: 15px;
-  font-size: 1.5rem;
-}
-
-.menu__link {
-  text-decoration: none;
-  color: grey;
+    &__item {
+      padding: 15px;
+      font-size: 1.5rem;
+    }
+    &__link {
+      text-decoration: none;
+      color: $color-grey;
+      &:hover {
+        @include basic-hover();
+      }
+    }
 }
 
 .hidden {
